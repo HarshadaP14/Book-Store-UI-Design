@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Store - Your Next Great Read</title>
+    <link rel="icon" href="./assets/book_fevicon.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- Navbar Code -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#home">
+          <img
+            src="./assets/book_logo.jpg"
+            alt="Book Store"
+            class="img-fluid"
+            style="max-height: 50px"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="bookCategoriesDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Book Categories</a
+              >
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="bookCategoriesDropdown"
+              >
+                <li>
+                  <a class="dropdown-item" href="#fiction">Fiction Books</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#nonfiction"
+                    >Non-Fiction Books</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#science">Science Books</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#history">Historical Books</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#authors">Authors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#bestSellers">Best Sellers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#newArrivals">New Arrivals</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#login">
+                <!-- <i class="fa-solid fa-user me-2">‌</i>Login -->
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#loginModal"
+                >
+                  <i class="fa-solid fa-user me-2"></i>
+                  Login
+                </button></a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero-section d-flex align-items-center">
+      <div class="container text-center">
+        <h1 class="fw-bold mb-4">Discover Your Next Great Read</h1>
+        <h6 class="fw-bold lead mb-4">
+          Explore our extensive collection of books and find your favorite
+          genres.
+        </h6>
+
+        <a href="#bookCategories" class="btn btn-primary btn-lg"
+          >Browse Categories</a
+        >
+      </div>
+    </section>
+
+    <main>
+      <!-- login modal -->
+      <div
+        class="modal fade"
+        id="loginModal"
+        tabindex="-1"
+        aria-labelledby="loginModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-md">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="loginModalLabel">Login</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <ul class="list-group">
+                <li class="list-group-item d-flex align-items-center">
+                  <form>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label"
+                        >Email address</label
+                      >
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="exampleInputEmail1"
+                        aria-describedby="emailHelp"
+                      />
+                      <div id="emailHelp" class="form-text">
+                        We'll never share your email with anyone else.
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label"
+                        >Password</label
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="exampleInputPassword1"
+                      />
+                    </div>
+                    <div class="mb-3 form-check">
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="exampleCheck1"
+                      />
+                      <label class="form-check-label" for="exampleCheck1"
+                        >Check me out</label
+                      >
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                  </form>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- login modal end -->
+
+      <!-- Book Categories Section -->
+      <section id="bookCategories" class="py-5">
+        <div class="container">
+          <h2 class="text-center mb-4">Book Categories</h2>
+          <div class="row g-4">
+            <!-- Fiction Category -->
+            <div class="col-lg-3 col-sm-12 col-md-6" id="fiction">
+              <div class="card">
+                <img
+                  src="./assets/fiction_book.jpg"
+                  class="card-img-top"
+                  alt="Fiction"
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title">Fiction</h5>
+                  <p class="card-text">
+                    Explore our diverse range of fiction books.
+                  </p>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#fictionModal"
+                  >
+                    Browse Fiction Books
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fiction Modal Structure -->
+            <div
+              class="modal fade"
+              id="fictionModal"
+              tabindex="-1"
+              aria-labelledby="fictionModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="fictionModalLabel">
+                      Fiction Books
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <ul class="list-group">
+                      <li class="list-group-item d-flex align-items-center">
+                        <img
+                          src="./assets/Arundhati-Roy.webp"
+                          alt="The God of Small Things"
+                          class="img-thumbnail me-3"
+                          style="width: 60px; height: 90px"
+                        />
+                        <div class="col">
+                          <strong
+                            >The God of Small Things by Arundhati Roy</strong
+                          >
+                          <p>
+                            A poignant tale set in Kerala, India, that explores
+                            family, love, and societal norms.
+                          </p>
+                        </div>
+                        <div class="col-auto">
+                          <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                      </li>
+                      <li class="list-group-item d-flex align-items-center">
+                        <img
+                          src="./assets/salman_rushdie.jfif"
+                          alt="Midnight's Children"
+                          class="img-thumbnail me-3"
+                          style="width: 60px; height: 90px"
+                        />
+                        <div class="col">
+                          <strong>Midnight's Children by Salman Rushdie</strong>
+                          <p>
+                            An epic novel that follows the life of Saleem Sinai,
+                            born at the exact moment of India's independence.
+                          </p>
+                        </div>
+                        <div class="col-auto">
+                          <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                      </li>
+                      <li class="list-group-item d-flex align-items-center">
+                        <img
+                          src="./assets/arvind_tiger.webp"
+                          alt="The White Tiger"
+                          class="img-thumbnail object-fit-cover me-3"
+                          style="width: 60px; height: 90px"
+                        />
+                        <div class="col">
+                          <strong>The White Tiger by Aravind Adiga</strong>
+                          <p>
+                            A thrilling narrative about a man's journey from a
+                            poor villager to a successful entrepreneur in modern
+                            India.
+                          </p>
+                        </div>
+                        <div class="col-auto">
+                          <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                      </li>
+                      <li class="list-group-item d-flex align-items-center">
+                        <img
+                          src="./assets/chitra_banergee.jpg"
+                          alt="The Palace of Illusions"
+                          class="img-thumbnail me-3"
+                          style="width: 80px; height: 90px"
+                        />
+                        <div class="col">
+                          <strong
+                            >The Palace of Illusions by Chitra Banerjee
+                            Divakaruni</strong
+                          >
+                          <p>
+                            A retelling of the Mahabharata from the perspective
+                            of Draupadi, offering a fresh and feminist
+                            viewpoint.
+                          </p>
+                        </div>
+                        <div class="col-auto">
+                          <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                      </li>
+                      <li class="list-group-item d-flex align-items-center">
+                        <img
+                          src="./assets/Jhumpa-Lahiri-American.webp"
+                          alt="The Namesake"
+                          class="img-thumbnail object-fit-cover me-3"
+                          style="width: 60px; height: 90px"
+                        />
+                        <div class="col">
+                          <strong>The Namesake by Jhumpa Lahiri</strong>
+                          <p>
+                            A touching story about an Indian-American family
+                            navigating their lives between two cultures.
+                          </p>
+                        </div>
+                        <div class="col-auto">
+                          <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Non-Fiction Category -->
+            <div class="col-lg-3 col-sm-12 col-md-6" id="nonfiction">
+              <div class="card">
+                <img
+                  src="./assets/non-fiction.jpg"
+                  class="card-img-top"
+                  alt="Non-Fiction"
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title">Non-Fiction</h5>
+                  <p class="card-text">
+                    Discover insightful non-fiction books.
+                  </p>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#nonfictionModal"
+                  >
+                    Browse Non-Fiction Books
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- non Fiction Modal Structure -->
+            <div
+              class="modal fade"
+              id="nonfictionModal"
+              tabindex="-1"
+              aria-labelledby="nonfictionModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="nonfictionModalLabel">
+                      Non-Fiction Books
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <ul class="list-group">
+                      <li class="list-group-item d-flex align-items-center">
+                        <img
+                          src="./assets/sapiens.png"
+                          alt="Sapiens by Yuval Noah Harari"
+                          class="img-thumbnail me-3 object-fit-cover"
+                          style="width: 60px; height: 90px"
+                        />
+                        <div class="col">
+                          <strong>Sapiens by Yuval Noah Harari</strong>
+                          <p>
+                            Explores the history of humankind, from the earliest
+                            days of Homo sapiens to the present.
+                          </p>
+                        </div>
+                        <div class="col-auto">
+                          <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                      </li>
+                      <li class="list-group-item d-flex align-items-center">
+                        <img
+                          src="./assets/educated.jfif"
+                          alt="Educated by Tara Westover"
+                          class="img-thumbnail me-3 object-fit-cover"
+                          style="width: 60px; height: 90px"
+                        />
+                        <div class="col">
+                          <strong>Educated by Tara Westover</strong>
+                          <p>
+                            A memoir about growing up in a strict and abusive
+                            household and eventually escaping through education.
+                          </p>
+                        </div>
+                        <div class="col-auto">
+                          <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                      </li>
+                      <li class="list-group-item d-flex align-items-center">
+                        <img
+                          src="./assets/Becoming-Michelle_Obama.jfif"
+                          alt="Becoming by Michelle Obama"
+                          class="img-thumbnail me-3 object-fit-cover"
+                          style="width: 60px; height: 90px"
+                        />
+                        <div class="col">
+                          <strong>Becoming by Michelle Obama</strong>
+                          <p>
+                            The memoir of former First Lady Michelle Obama,
+                            detailing her journey from childhood to the White
+                            House.
+                          </p>
+                        </div>
+                        <div class="col-auto">
+                          <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                      </li>
+                      <li class="list-group-item d-flex align-items-center">
+                        <img
+                          src="./assets/Immortal-Life-Henrietta-Rebecca.jfif"
+                          alt="The Immortal Life of Henrietta Lacks by Rebecca Skloot"
+                          class="img-thumbnail me-3 object-fit-cover"
+                          style="width: 60px; height: 90px"
+                        />
+                        <div class="col">
+                          <strong
+                            >The Immortal Life of Henrietta Lacks by Rebecca
+                            Skloot</strong
+                          >
+                          <p>
+                            Tells the story of Henrietta Lacks, whose cells were
+                            taken without her knowledge, leading to significant
+                            medical breakthroughs.
+                          </p>
+                        </div>
+                        <div class="col-auto">
+                          <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                      </li>
+                      <li class="list-group-item d-flex align-items-center">
+                        <img
+                          src="./assets/The-Power-of-Habit.jfif"
+                          alt="The Power of Habit by Charles Duhigg"
+                          class="img-thumbnail me-3 object-fit-cover"
+                          style="width: 60px; height: 90px"
+                        />
+                        <div class="col">
+                          <strong>The Power of Habit by Charles Duhigg</strong>
+                          <p>
+                            Explores the science behind why habits exist and how
+                            they can be changed.
+                          </p>
+                        </div>
+                        <div class="col-auto">
+                          <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Science Category -->
+            <div class="col-lg-3 col-sm-12 col-md-6" id="science">
+              <div class="card">
+                <img
+                  src="./assets/science.jpg"
+                  class="card-img-top"
+                  alt="Science"
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title">Science</h5>
+                  <p class="card-text">
+                    Dive into our collection of science books.
+                  </p>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#scienceModal"
+                  >
+                    Browse Science Books
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Science Modal Structuer -->
+            <div
+              class="modal fade"
+              id="scienceModal"
+              tabindex="-1"
+              aria-labelledby="scienceModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="scienceModalLabel">
+                      Science Books
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <ul class="list-group">
+                      <li class="list-group-item d-flex align-items-center">
+                        <img
+                          src="./assets/History-of-Time-Stephen-Hawking.jfif"
+                          alt="Sapiens by Yuval Noah Harari"
+                          class="img-thumbnail me-3 object-fit-cover"
+                          style="width: 60px; height: 90px"
+                        />
+                        <div class="col">
+                          <strong
+                            >A Brief History of Time by Stephen Hawking</strong
+                          >
+                          <p>
+                            A landmark volume in science writing by one of the
+                            great minds of our time, exploring the universe and
+                            our place within it.
+                          </p>
+                        </div>
+                        <div class="col-auto">
+                          <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                      </li>
+                      <li class="list-group-item d-flex align-items-center">
+                        <img
+                          src="./assets/Cosmos-Carl-Sagan.jfif"
+                          alt="Educated by Tara Westover"
+                          class="img-thumbnail me-3 object-fit-cover"
+                          style="width: 60px; height: 90px"
+                        />
+                        <div class="col">
+                          <strong>Cosmos by Carl Sagan</strong>
+                          <p>
+                            A classic science book that explores the universe,
+                            our place in it, and the importance of scientific
+                            thought.
+                          </p>
+                        </div>
+                        <div class="col-auto">
+                          <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                      </li>
+                      <li class="list-group-item d-flex align-items-center">
+                        <img
+                          src="./assets/Origin-Species-Charles-Darwin.jfif"
+                          alt="Becoming by Michelle Obama"
+                          class="img-thumbnail me-3 object-fit-cover"
+                          style="width: 60px; height: 90px"
+                        />
+                        <div class="col">
+                          <strong
+                            >On the Origin of Species by Charles Darwin</strong
+                          >
+                          <p>
+                            The foundational text of evolutionary biology, where
+                            Darwin presents his theory of natural selection.
+                          </p>
+                        </div>
+                        <div class="col-auto">
+                          <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                      </li>
+                      <li class="list-group-item d-flex align-items-center">
+                        <img
+                          src="./assets/Selfish-Gene-Richard-Dawkins.jfif"
+                          alt="The Immortal Life of Henrietta Lacks by Rebecca Skloot"
+                          class="img-thumbnail me-3 object-fit-cover"
+                          style="width: 60px; height: 90px"
+                        />
+                        <div class="col">
+                          <strong>The Selfish Gene by Richard Dawkins</strong>
+                          <p>
+                            This influential book explores the concept of the
+                            gene-centered view of evolution and its implications
+                            for understanding life.
+                          </p>
+                        </div>
+                        <div class="col-auto">
+                          <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                      </li>
+                      <li class="list-group-item d-flex align-items-center">
+                        <img
+                          src="./assets/Structure-Scientific-Revolutions-Thomas-Kuhn.jfif"
+                          alt="The Power of Habit by Charles Duhigg"
+                          class="img-thumbnail me-3 object-fit-cover"
+                          style="width: 60px; height: 90px"
+                        />
+                        <div class="col">
+                          <strong
+                            >The Structure of Scientific Revolutions by Thomas
+                            S. Kuhn</strong
+                          >
+                          <p>
+                            This book introduced the concept of "paradigm
+                            shifts" and revolutionized our understanding of how
+                            science progresses.
+                          </p>
+                        </div>
+                        <div class="col-auto">
+                          <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Historical Category -->
+            <div class="col-lg-3 col-sm-12 col-md-6" id="history">
+              <div class="card">
+                <img
+                  src="./assets/historical.jfif"
+                  class="card-img-top"
+                  alt="Historical"
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title">Historical</h5>
+                  <p class="card-text">
+                    Explore our collection of historical books.
+                  </p>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#historyModal"
+                  >
+                    Browse Science Books
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Historical Modal Structure -->
+            <div
+              class="modal fade"
+              id="historyModal"
+              tabindex="-1"
+              aria-labelledby="historyModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="historyModalLabel">
+                      History Books
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <ul class="list-group">
+                      <li class="list-group-item d-flex align-items-center">
+                        <img
+                          src="./assets/Guns-Germs-Steel-Jared Diamond.jfif"
+                          alt="Guns, Germs, and Steel by Jared Diamond"
+                          class="img-thumbnail me-3 object-fit-cover"
+                          style="width: 60px; height: 90px"
+                        />
+                        <div class="col">
+                          <strong
+                            >Guns, Germs, and Steel by Jared Diamond</strong
+                          >
+                          <p>
+                            Explores how geography and environment shaped the
+                            modern world, influencing the fate of human
+                            societies.
+                          </p>
+                        </div>
+                        <div class="col-auto">
+                          <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                      </li>
+                      <li class="list-group-item d-flex align-items-center">
+                        <img
+                          src="./assets/A-People's-History-United States-Howard.jfif"
+                          alt="A People's History of the United States by Howard Zinn"
+                          class="img-thumbnail me-3 object-fit-cover"
+                          style="width: 60px; height: 90px"
+                        />
+                        <div class="col">
+                          <strong
+                            >A People's History of the United States by Howard
+                            Zinn</strong
+                          >
+                          <p>
+                            Provides a bottom-up perspective of American
+                            history, focusing on the stories of the common
+                            people.
+                          </p>
+                        </div>
+                        <div class="col-auto">
+                          <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                      </li>
+                      <li class="list-group-item d-flex align-items-center">
+                        <img
+                          src="./assets/sapiens.png"
+                          alt="Sapiens by Yuval Noah Harari"
+                          class="img-thumbnail me-3 object-fit-cover"
+                          style="width: 60px; height: 90px"
+                        />
+                        <div class="col">
+                          <strong>Sapiens by Yuval Noah Harari</strong>
+                          <p>
+                            A brief history of humankind, tracing the evolution
+                            and impact of Homo sapiens on the planet.
+                          </p>
+                        </div>
+                        <div class="col-auto">
+                          <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                      </li>
+                      <li class="list-group-item d-flex align-items-center">
+                        <img
+                          src="./assets/The-Rise-Fall-Third-Reich-William L. Shirer.jfif"
+                          alt="The Rise and Fall of the Third Reich by William L. Shirer"
+                          class="img-thumbnail me-3 object-fit-cover"
+                          style="width: 60px; height: 90px"
+                        />
+                        <div class="col">
+                          <strong
+                            >The Rise and Fall of the Third Reich by William L.
+                            Shirer</strong
+                          >
+                          <p>
+                            A comprehensive account of Nazi Germany, detailing
+                            the rise of Hitler and the impact of World War II.
+                          </p>
+                        </div>
+                        <div class="col-auto">
+                          <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                      </li>
+                      <li class="list-group-item d-flex align-items-center">
+                        <img
+                          src="./assets/A-History-Western-Civilization-John-Doe.jfif"
+                          alt="A History of Western Civilization by John Doe"
+                          class="img-thumbnail me-3 object-fit-cover"
+                          style="width: 60px; height: 90px"
+                        />
+                        <div class="col">
+                          <strong
+                            >A History of Western Civilization by John
+                            Doe</strong
+                          >
+                          <p>
+                            Chronicles the development of Western societies from
+                            ancient times to the modern era.
+                          </p>
+                        </div>
+                        <div class="col-auto">
+                          <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Authors Section -->
+      <section id="authors" class="py-5">
+        <div class="container">
+          <h2 class="text-center mb-4">Featured Authors</h2>
+          <div class="row g-4">
+            <!-- Author 1: Chetan Bhagat -->
+            <div class="col-md-4 d-flex">
+              <div class="card flex-fill">
+                <img
+                  src="https://im.rediff.com/getahead/2012/feb/15chetan-bhagat1.jpg"
+                  class="card-img-top"
+                  alt="Chetan Bhagat"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Chetan Bhagat</h5>
+                  <p class="card-text">
+                    Chetan Bhagat is one of India's most popular contemporary
+                    authors, known for his engaging and relatable storytelling.
+                    His novels often capture the pulse of modern Indian society.
+                  </p>
+                  <p>
+                    <strong>Notable Works:</strong> Five Point Someone, 2 States
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Author 2: Ruskin Bond -->
+            <div class="col-md-4 d-flex">
+              <div class="card flex-fill">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1rjZdwq3pilLw1oGAWrnmgB7hXThPbFrLWg&s"
+                  class="card-img-top"
+                  alt="Ruskin Bond"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Ruskin Bond</h5>
+                  <p class="card-text">
+                    Ruskin Bond is a beloved author known for his vivid
+                    storytelling and charming depictions of life in the Indian
+                    hill stations. His works are celebrated for their warmth and
+                    simplicity.
+                  </p>
+                  <p>
+                    <strong>Notable Works:</strong> The Room on the Roof, The
+                    Blue Umbrella
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Author 3: Arundhati Roy -->
+            <div class="col-md-4 d-flex">
+              <div class="card flex-fill">
+                <img
+                  src="https://cdn.britannica.com/96/167696-050-22B2A133/Arundhati-Roy.jpg"
+                  class="card-img-top"
+                  alt="Arundhati Roy"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Arundhati Roy</h5>
+                  <p class="card-text">
+                    Arundhati Roy is an acclaimed author and activist, best
+                    known for her powerful and lyrical prose. Her debut novel
+                    received international acclaim and established her as a
+                    significant literary voice.
+                  </p>
+                  <p>
+                    <strong>Notable Works:</strong> The God of Small Things, The
+                    Ministry of Utmost Happiness
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Best Sellers Section -->
+      <section id="bestSellers" class="py-5 bg-light">
+        <div class="container">
+          <h2 class="text-center mb-4">Best Sellers</h2>
+          <div class="row">
+            <!-- Best Seller 1: The God of Small Things -->
+            <div class="col-md-3 mb-4 d-flex">
+              <div class="card flex-fill">
+                <img
+                  src="https://cdn.britannica.com/96/167696-050-22B2A133/Arundhati-Roy.jpg"
+                  class="card-img-top"
+                  alt="The God of Small Things"
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title">The God of Small Things</h5>
+                  <p class="card-text">
+                    Arundhati Roy's Booker Prize-winning debut novel, exploring
+                    love, loss, and the complexities of social and political
+                    life in India.
+                  </p>
+                  <p class="card-text"><strong>$14.99</strong></p>
+                  <a href="#" class="btn btn-primary">Buy Now</a>
+                </div>
+              </div>
+            </div>
+            <!-- Best Seller 2: 2 States -->
+            <div class="col-md-3 mb-4 d-flex">
+              <div class="card flex-fill">
+                <img
+                  src="https://im.rediff.com/getahead/2012/feb/15chetan-bhagat1.jpg"
+                  class="card-img-top"
+                  alt="2 States"
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title">2 States</h5>
+                  <p class="card-text">
+                    Chetan Bhagat's humorous and relatable tale of love, culture
+                    clash, and family dynamics in modern India.
+                  </p>
+                  <p class="card-text"><strong>$12.99</strong></p>
+                  <a href="#" class="btn btn-primary">Buy Now</a>
+                </div>
+              </div>
+            </div>
+            <!-- Best Seller 3: The White Tiger -->
+            <div class="col-md-3 mb-4 d-flex">
+              <div class="card flex-fill">
+                <img
+                  src="https://static.toiimg.com/photo/78827197.cms"
+                  class="card-img-top"
+                  alt="The White Tiger"
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title">The White Tiger</h5>
+                  <p class="card-text">
+                    Aravind Adiga's Man Booker Prize-winning novel that offers a
+                    dark, witty perspective on India's class struggle and the
+                    quest for freedom.
+                  </p>
+                  <p class="card-text"><strong>$16.99</strong></p>
+                  <a href="#" class="btn btn-primary">Buy Now</a>
+                </div>
+              </div>
+            </div>
+            <!-- Best Seller 4: The Palace of Illusions -->
+            <div class="col-md-3 mb-4 d-flex">
+              <div class="card flex-fill">
+                <img
+                  src="https://images.squarespace-cdn.com/content/v1/51b81078e4b018d977c2fada/4f8ccc27-b81a-4771-9a38-82c8d4b43456/chitra%2Bblue%2Bclose.jpg"
+                  class="card-img-top"
+                  alt="The Palace of Illusions"
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title">The Palace of Illusions</h5>
+                  <p class="card-text">
+                    Chitra Banerjee Divakaruni's reimagining of the Mahabharata
+                    from Draupadi's perspective, blending myth, history, and
+                    magic.
+                  </p>
+                  <p class="card-text"><strong>$18.99</strong></p>
+                  <a href="#" class="btn btn-primary">Buy Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- New Arrivals Section -->
+      <section id="newArrivals" class="py-5">
+        <div class="container">
+          <h2 class="text-center mb-4">New Arrivals</h2>
+          <div class="row">
+            <!-- New Arrival  -->
+            <div class="col-md-3 mb-4 d-flex">
+              <div class="card h-100">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1rjZdwq3pilLw1oGAWrnmgB7hXThPbFrLWg&s"
+                  class="card-img-top"
+                  alt="The Blue Umbrella"
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title">The Blue Umbrella</h5>
+                  <p class="card-text">
+                    A heartwarming story by Ruskin Bond, set in a small village
+                    in India, showcasing the innocence of childhood and the
+                    beauty of simplicity.
+                  </p>
+                  <a href="#" class="btn btn-primary mt-auto">Buy Now</a>
+                </div>
+              </div>
+            </div>
+            <!-- New Arrival 2 -->
+            <div class="col-md-3 mb-4 d-flex">
+              <div class="card h-100">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/0/08/Amish_with_his_books_2020.jpg"
+                  class="card-img-top"
+                  alt="War of Lanka"
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title">War of Lanka</h5>
+                  <p class="card-text">
+                    Amish Tripathi continues his epic saga with "War of Lanka,"
+                    diving deep into Indian mythology with vivid storytelling
+                    and intricate details.
+                  </p>
+                  <a href="#" class="btn btn-primary mt-auto">Buy Now</a>
+                </div>
+              </div>
+            </div>
+            <!-- New Arrival 3 -->
+            <div class="col-md-3 mb-4 d-flex">
+              <div class="card h-100">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdRgH2zhHNUhCei4SL5AjGQB5sPhHpEIuaIQ&s"
+                  class="card-img-top"
+                  alt="A Place Called Home"
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title">A Place Called Home</h5>
+                  <p class="card-text">
+                    Preeti Shenoy's latest novel explores the complexities of
+                    family dynamics and the concept of belonging in a rapidly
+                    changing world.
+                  </p>
+                  <a href="#" class="btn btn-primary mt-auto">Buy Now</a>
+                </div>
+              </div>
+            </div>
+            <!-- New Arrival 4 -->
+            <div class="col-md-3 mb-4 d-flex">
+              <div class="card h-100">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/0/08/Amish_with_his_books_2020.jpg"
+                  class="card-img-top"
+                  alt="The Immortals of Meluha"
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title">The Immortals of Meluha</h5>
+                  <p class="card-text">
+                    In "The Immortals of Meluha," Amish Tripathi reimagines the
+                    legend of Shiva in a gripping tale filled with action,
+                    adventure, and philosophical insights.
+                  </p>
+                  <a href="#" class="btn btn-primary mt-auto">Buy Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center mb-5">Contact Us</h2>
+        <div class="row">
+          <div class="col-md-6 mb-4 mb-md-0">
+            <form>
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Your Name"
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Your Email"
+                />
+              </div>
+              <div class="mb-3">
+                <textarea
+                  class="form-control"
+                  rows="4"
+                  placeholder="Your Message"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Send Message
+              </button>
+            </form>
+          </div>
+          <div class="col-md-6">
+            <h5>NEW BOOK STORE</h5>
+            <p>
+              5th Floor, Samadhan Building, Anand Nagar, Santacruz East, Mumbai,
+              Maharashtra 400055
+            </p>
+            <p>Phone: +91 22 2610 6065</p>
+            <p>Email: info@bookstore.com</p>
+            <div class="mt-4">
+              <a href="#" class="btn btn-outline-primary me-2"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="btn btn-outline-primary me-2"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="btn btn-outline-primary"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-3">
+      <div class="container text-center">
+        <p>&copy; 2024 Book Store. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

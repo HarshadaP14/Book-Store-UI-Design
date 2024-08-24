@@ -1,0 +1,19 @@
+.hero-section {
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrrXaaYIEvHykCn9ysgD8npNwlvQKjg_XCHw&s ")
+    no-repeat center center;
+  background-size: cover;
+  color: #000;
+  padding: 100px 0;
+  text-align: center;
+}
+.hero-section h1 {
+  font-size: 3.5rem;
+}
+.section-title {
+  margin-bottom: 2rem;
+}
+.card img {
+  height: 400px;
+  /* width: fit-content; */
+  object-fit: cover;
+}
